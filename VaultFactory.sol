@@ -2,7 +2,7 @@
 pragma solidity 0.8.13;
 import "./Vault.sol";
 
-contract VaultFactory is Auth {
+contract VaultFactory is iAuth {
 
     address payable public _development = payable(0x050134fd4EA6547846EdE4C4Bf46A334B7e87cCD);
     address payable public _community = payable(0x03F2d8F9F764112Cd5fca6E7622c0e0Fc2CE8620);
@@ -12,7 +12,7 @@ contract VaultFactory is Auth {
     
     uint256 public receiverCount = 0;
 
-    constructor() payable Auth(address(_msgSender()),address(_development),address(_community)) {
+    constructor() payable iAuth(address(_msgSender()),address(_development),address(_community)) {
     }
 
     receive() external payable {
