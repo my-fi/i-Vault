@@ -43,6 +43,10 @@ contract Vault is iAuth, IVAULT {
         return address(this).balance;
     }
 
+    function getTokenBalance(address token) public view returns(uint256) {
+        return IERC20(token).balanceOf(address(this));
+    }
+
     function withdrawETH() public authorized() returns(bool) {
         uint ETH_liquidity = uint(address(this).balance);
         assert(uint(ETH_liquidity) > uint(0));
