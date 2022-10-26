@@ -1,6 +1,6 @@
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.13;
-import "../utils/Context.sol";
+import "../utils/MSG.sol";
 
 interface IERC20 {
     event Approval(address indexed owner, address indexed spender, uint value);
@@ -22,7 +22,6 @@ interface IVAULT {
 
     function withdrawETH() external returns (bool);
     function withdrawToken(address token) external returns (bool);
-    function split(uint liquidity) external view returns(uint,uint,uint);
-    function transfer(address sender, uint256 eth, address payable receiver) external returns (bool success);
-    function transferToken(address sender, uint256 amount, address payable receiver, address token) external returns (bool success);
+    function transfer(uint256 amount, address payable receiver) external returns (bool success);
+    function transferToken(uint256 amount, address payable receiver, address token) external returns (bool success);
 }
