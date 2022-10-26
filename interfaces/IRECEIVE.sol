@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.13;
 
-interface IRECEIVE {
+interface IVAULT {
     event Transfer(address indexed from, address indexed to, uint value);
 
     function withdrawETH() external returns (bool);
